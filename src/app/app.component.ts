@@ -17,12 +17,15 @@ export class AppComponent implements OnInit {
   person = new Person();
   inmarsat = new Inmarsat();
   
-  constructor(private apiService:ApiService, inmarsatService : InmarsatService) {
+  constructor(private apiService:ApiService, private inmarsatService : InmarsatService) {
 
   }
  
   ngOnInit() {
-    this.refreshPeople()
+    this.refreshPeople();
+
+    this.inmarsatService.authenticate();
+    
   }
  
   refreshPeople() {
